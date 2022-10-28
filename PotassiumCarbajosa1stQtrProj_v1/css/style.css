@@ -1,0 +1,8 @@
+@font-face{
+	font-family:ValorantFont;
+	src: url(../font/ValorantFont.ttf) format("truetype");
+}
+
+*{
+	font-family:ValorantFont;
+}
