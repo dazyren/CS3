@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			div{
+				width: 15%;
+				border: 1px solid black;
+				margin-top: 15px;
+			}
+			
+			a{border: solid 2px purple;
+				color: hotpink;}
+				
+			a:link{
+				background-color: plum;
+					text-decoration: none;
+				}
+					a:visited{
+						background-color: gray;
+						color: white;
+						border: solid 2px black;
+					}
+					
+					a:hover{
+						background-color: hotpink;
+						color: lightpink;
+						border: solid 2px mediumvioletred;
+					}
+					
+					a:active{
+						background-color: cyan;
+						border: solid 2px lightblue;
+						color: blue;
+					}
+					
+					#div1:target{
+					border: solid 2px purple;
+					color: hotpink;
+					background-color: plum;}
+					
+					#div2:target{
+						border: dotted 10px green;
+						color: hotpink;
+						background-color: seagreen;}
+		</style>
+	</head>
+	
+	<body>
+		<a href="#div1">First Link</a>
+		<a href="#div2">Second Link</a>
+		
+		<div id="div1">
+		<p>Div 1 here
+		<br>
+		<br>
+		<br>
+		<br>
+		</p>
+		</div>
+		
+		<div id="div2">
+		<p>Div 2 here
+		<br>
+		<br>
+		<br>
+		<br>
+		</p>
+		</div>
+	</body>
+</html>
