@@ -273,10 +273,6 @@ footer{
    justify-content: space-around;
 }
 
-video{
-	width: 95%;
-}
-
 .twitter{
 	background: url('../images/sprite.png') no-repeat -53px -55px;
 	background-size: 213px 105px;
