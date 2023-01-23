@@ -28,7 +28,7 @@
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: right bottom;
-	background-size: 100%;
+	background-size: cover;
 	background-image: url(../images/index_bg.gif);
 }
 
@@ -37,7 +37,7 @@
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: right bottom;
-	background-size: 100%;
+	background-size: cover;
 	background-image: url(../images/movement_bg.gif);
 }
 
@@ -46,7 +46,7 @@
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: right bottom;
-	background-size: 100%;
+	background-size: cover;
 	background-image: url(../images/aiming_bg.gif)
 }
 
@@ -55,7 +55,7 @@
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: right bottom;
-	background-size: 100%;
+	background-size: cover;
 	background-image: url(../images/thinking_bg.gif);
 }
 
@@ -64,7 +64,7 @@
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: right bottom;
-	background-size: 100%;
+	background-size: cover;
 	background-image: url(../images/otherguides_bg.gif);
 }
 
@@ -73,7 +73,7 @@
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: right bottom;
-	background-size: 100%;
+	background-size: cover;
 	background-image: url(../images/about_bg.gif);
 }
 
@@ -82,7 +82,7 @@
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: right bottom;
-	background-size: 100%;
+	background-size: cover;
 	background-image: url(../images/contacts_bg.gif);
 }
 
