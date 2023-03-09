@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>FA10</title>
+</head>
+<body>
+	
+	<p id=gen></p>
+	<br>
+	<p id=result></p>
+	<script>
+	
+	var num = Math.floor(Math.random()*1001);
+	document.getElementById('gen').innerHTML = "Randomly generated number: " + num;
+	
+	var hundreds = Math.floor((num%1000)/100)*100;
+	var tens = Math.floor((num%100)/10)*10;
+	var ones = Math.floor((num%10));
+	
+	document.getElementById('result').innerHTML = "Breakdown:  " + hundreds + " " + tens + " " + ones;
+
+	</script>
+</body>
+</html>
