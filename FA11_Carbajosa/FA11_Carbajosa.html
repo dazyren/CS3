@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<script>
+	var one = prompt("Enter Side:");
+	var two = prompt("Enter Side:");
+	var three = prompt("Enter Side:");
+	
+	determineTriangle(one,two,three);
+	function determineTriangle(a,b,c){
+	if(a == b && b == c){
+		alert("Triangle is EQUILATERAL");
+	}
+	
+	else if(a == b || b == c || c == a){
+		alert("Triangle is ISOCELES");
+	}
+	
+	else{
+	alert("Triangle is SCALENE");
+	}
+	
+	}
+</script>
+
+
+
+</body>
+</html>
