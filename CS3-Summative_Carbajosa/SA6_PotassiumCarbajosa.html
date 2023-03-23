@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>One Time Password </title>
+		<meta charset = "UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        	body {background: lightblue; 
+            	text-align: center;
+            	font-family: arial;
+                color: navy;
+            }
+            button {padding: 10px; background:violet }
+            a {font-size: 0.5em; color: maroon}
+        </style>
+
+	</head>
+	<body onload="generate()">
+	<h1> Final Verification Step </h1>
+	<h2> Current OTP: <span id="otp"> _ _ _ _ _ _ </span> 
+	<a href="#" onclick="generate()"> New OTP </a></h2>
+    <button onclick="confirm()"> Enter the OTP as shown above </button>
+    
+    <script>
+    	//Declaring the otp as a global variable so that it can be used in variety of functions.
+		var numotp = "";
+		function generate(){
+		/*Redeclaring numotp as an empty string to prevent concatination from previous outputs. For example "123456" was generated beforehand, and
+		the function "generate()" is called again and produced "523156", the redeclaration of an empty string prevents "123456523156" from happening.
+		*/
+		numotp="";
+		
+		/*A simple loop that iterates 6 times in accordance to the 6 digits of the OTP. Declaring the numotp as a string prevents
+		summation of the numbers. Using this loop to generate numbers also satisfy the possibility of generating 0 as the first digit as opposed
+		to using "Math.random()" which does print 6 digits, but it will not start with 0.
+		*/
+		for(let i = 0; i<6; i++){
+			let random = Math.floor(Math.random()*10);
+			numotp = random + numotp;
+			}
+			document.getElementById('otp').innerHTML = numotp;
+		}
+		
+		//A function which prompts the user to enter the specified OTP, and if he is correct, he will be led to a link, otherwise he will be deemed incorrect and the function "generate()" will be called to generate a new OTP.
+		function confirm(){
+			let input = prompt("Enter the OTP send");
+			
+			if(input == numotp){
+				window.open("https://youtube.com")
+			}
+			
+			else{
+				alert("You have inputted a wrong input");
+				generate();
+			}
+		}
+    
+    </script>
+</body>
+</html>

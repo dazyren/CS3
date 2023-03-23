@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Numerology</title>
+		<meta charset = "UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        	body {background: lightblue; 
+            	text-align: center;
+            	font-family: arial;
+                color: navy;
+            }
+            button {padding: 10px; background:violet }
+            span {font-size: 0.5em; color: maroon}
+        </style>
+
+	</head>
+<body>
+	<h1> Your Fortune is in your name </h1>
+	<h2> Your Name is: <span id="thename"> </span></h2>
+    <h2> Today's fortune: <span id="fortune"> </span></h2>
+    <button onclick="getName()"> Click here to enter your name </button>
+     <script>
+    	
+		/*This function gets the name of the user and it uses the name length to validate its fortune.
+		and if the length exceeds 9, it adds the numbers of the length.
+		For example, a name with 14 length will sum to 5 and will now be its fortune.
+		*/
+		function getName(){
+			let name = prompt("What is your name?");
+			document.getElementById('thename').innerHTML = name;
+			//declares the fortune variable to store the name length.
+			var fortune = name.length;
+			/*This function loops until the fortune will not exceed 9. For example, a length of 19 will still result to a fortune number 
+			of 10 and the code loops again and the final fortune will be 1. Using the division and modulo operators, is one way to add 
+			the digits of the fortune if it exceed 9. For example, 37 the lenght exceeds 9, and going through our code: it then first
+			gets the remainder of the 3, which is 7. In which we happen to have the ones. This is then stored in the actualfortune to
+			be added with the upcoming values. After it is added, it then is divided by 10 and floored down to get the value of the second digit.
+			(Dividing 37 by 10 will result to 3.7 and flooring it result to 3) After that is finished, it will then go through another iteration
+			which adds it to the remainder of the second digit.  Since 3%10=3, it will add it with the actualfortune with the value of 7 resulting
+			to actualfortune having an updated value of 10. Then 3 is divided to 10, which results to 0.3 but is floored down, resulting to 0. This ends the loop.
+			But since fortune is still greater than 9, it will run through the loop. The fortune having a value of 10 will now be modulated through 10 which results to
+			0 being assigned to actualfortune. It will then run through a division which 10/10 will result to 1 and if it is run again, the remainder of 1 divided by 10
+			is 1 and therefore the actualfortune will have the value of one. Then 1 is then divided by 10, which is 0.1 but is floored down, will result to 0.
+			This end the loop and updates the value of the fortune (actualfortune = 1, whereas: fortune=1). And the statement does not satisfy the loop anymore, thus
+			the loop breaks. It will then run through the cases.
+			by 10 is
+			*/
+			while(fortune > 9){
+					let actualfortune = 0;
+						while (fortune > 0) {
+							actualfortune = actualfortune + fortune % 10;
+							fortune = Math.floor(fortune / 10);
+						}
+							fortune = actualfortune;
+				}
+				
+			/*A simple case which takes the fortune value of 0-9, corresponding it to a fortune.*/
+			switch(fortune){
+				case 0:
+					alert("you will have a good day");
+					break;
+				case 1:
+					alert("you will not have a good day");
+					break;
+				case 2:
+					alert("you will most likely have a good day");
+					break;
+				case 3:
+					alert("you will most likely not have a good day");
+					break;
+				case 4:
+					alert("🙂");
+					break;
+				case 5:
+					alert("🙁");
+					break;
+				case 6:
+					alert("you will recieve bad news");
+					break;
+				case 7:
+					alert("you will recieve good news");
+					break;
+				case 8:
+					alert("you will recieve normal news");
+					break;
+				case 9:
+					alert("you are news");
+					break;
+		}
+    
+		}
+    </script>
+    
+</body>
+</html>

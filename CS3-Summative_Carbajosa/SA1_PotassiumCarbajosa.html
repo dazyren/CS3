@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Toss coin</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8">
+        <style>
+        	body {background: navy; 
+            	text-align: center;
+            	font-family: arial;
+                color: white;
+            }
+            button {padding: 10px; background:violet }
+            span {color: yellow}
+            #coin, h5 {color: yellow; }
+            #coin { background: gray; 
+            	width: 25px; 
+                height: 25px;
+                padding: 25px;          
+                border: 5px dashed darkgray;
+                border-radius: 50%;
+                margin: 0 auto;
+                
+            }
+            
+        </style>
+
+	</head>
+	<body onload="getGuess()">
+        <h1> Heads or Tail? </h1>
+        <h2 onclick="getGuess()"> Click here to change your Guess: <span id="guess"> </span></h2>
+        <h2 id="coin" onclick="result()"></span></h2>   
+        <h5> Click on the coin above to randomly change its face and compare with your guess </h5> 
+        <script>
+		
+			var getGuess = function() {
+               uGuess = prompt("Type H for head and T for tail","H").toUpperCase();
+               (uGuess != "H" && uGuess != "T") ?  alert("Wrong Input"):
+                guess.innerHTML = uGuess;
+            }
+			/*this is a function which generates a random number between 0 to 1. 0 will
+			result into Heads for the computer and 1 will result otherwise.
+			*/
+			var result = function(){
+				random = Math.floor(Math.random()*2);
+				if(random == 0){
+					random = 'H';
+					document.getElementById('coin').innerHTML = "H";
+				}
+				
+				else{
+					random = 'T';
+					document.getElementById('coin').innerHTML = "T";
+				}
+				
+				/*executes the function compare to compare the results. This has a timer due to the alert box being more early than the output of the result.*/
+				setTimeout(compare(uGuess,random),1000);
+			}	
+			
+			/* this function checks to compare if the input of the user and the computer
+			is the same or no. If it is, then it will say that it (player) correctly guessed it, and says wrong if otherwise.
+			*/
+			var compare = function(uGuess,random){
+					console.log(random, uGuess);
+					if(uGuess == random){
+					alert("You guessed correctly!");
+					}
+				
+				else{
+					alert("You guessed wrongly!");}
+			}
+			
+			
+        </script>
+	</body>
+</html>
+
