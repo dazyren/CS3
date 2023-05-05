@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<script>	
+		var met = ["AUG"];
+		var stop = ["UAA", "UAG", "UGA"];
+		var phe = ["UUU", "UUC"];
+		var leu = ["UUA", "UUG", "CUU", "CUC", "CUA", "CUG"];
+		var ile = ["AUU", "AUC", "AUA"];
+		var val = ["GUU", "GUC", "GUA", "GUG"];
+		var ser = ["UCU", "UCC", "UCA", "UCG", "AGU", "AGC"];
+		var pro = ["CCU", "CCC", "CCA", "CCG"];
+		var thr = ["ACU", "ACC", "ACA", "ACG"];
+		var ala = ["GCU", "GCC", "GCA", "GCG"];
+		var tyr = ["UAU", "UAC"];
+		var his = ["CAU", "CAC"];
+		var gln = ["CAA", "CAG"];
+		var asn = ["AAU", "AAC"];
+		var lys = ["AAA", "AAG"];
+		var asp = ["GAU", "GAC"];
+		var glu = ["GAA", "GAG"];
+		var cys = ["UGU", "UGC"];
+		var trp = ["UGG"];
+		var arg = ["CGU", "CGC", "CGA", "CGG", "AGA", "AGG"];
+		var gly = ["GGU", "GGC", "GGA", "GGG"];
+		
+		var geneticcode = prompt("What is the genetic sequence?").toUpperCase();
+		let regex = /^[AUGC]+$/;
+		var startcodon = geneticcode.search("AUG");
+		if(startcodon < 0 || regex.test(geneticcode) === false){
+			document.body.innerHTML = "Genetic Code Unrecognizable";
+		}
+		
+		else{
+			geneticcode = geneticcode.slice(startcodon, geneticcode.length);
+			var codons = [];
+				for(var i = 0;; i++){
+					if(geneticcode.slice(0,3).length < 3){
+						break;
+					}
+					
+					
+					else{
+						codons[i] = geneticcode.slice(0,3);
+						geneticcode = geneticcode.slice(3,geneticcode.length);
+						if(stop.includes(codons[i])){
+							break;
+						};
+						
+					}
+					
+					
+				
+				
+				}
+				document.write("[" + codons + "]" + "<br>" );
+				for(var i = 0; i<codons.length; i++){
+					if(met.includes(codons[i])){
+					document.write(codons[i] + " --> met" + "<br>");
+					}
+					else if(stop.includes(codons[i])){
+					document.write(codons[i] + " --> stop" + "<br>");
+					break;
+					}
+					else if(phe.includes(codons[i])){
+					document.write(codons[i] + " --> phe" + "<br>");
+					}
+					else if(leu.includes(codons[i])){
+					document.write(codons[i] + " --> leu" + "<br>");
+					}
+					else if(ile.includes(codons[i])){
+					document.write(codons[i] + " --> ile" + "<br>");
+					}
+					else if(val.includes(codons[i])){
+					document.write(codons[i] + " --> val" + "<br>");
+					}
+					else if(ser.includes(codons[i])){
+					document.write(codons[i] + " --> ser" + "<br>");
+					}
+					else if(pro.includes(codons[i])){
+					document.write(codons[i] + " --> pro" + "<br>");
+					}
+					else if(thr.includes(codons[i])){
+					document.write(codons[i] + " --> thr" + "<br>");
+					}
+					else if(ala.includes(codons[i])){
+					document.write(codons[i] + " --> ala" + "<br>");
+					}
+					else if(tyr.includes(codons[i])){
+					document.write(codons[i] + " --> tyr" + "<br>");
+					}
+					else if(his.includes(codons[i])){
+					document.write(codons[i] + " --> his" + "<br>");
+					}
+					else if(gln.includes(codons[i])){
+					document.write(codons[i] + " --> gln" + "<br>");
+					}
+					else if(asn.includes(codons[i])){
+					document.write(codons[i] + " --> asn" + "<br>");
+					}
+					else if(lys.includes(codons[i])){
+					document.write(codons[i] + " --> lys" + "<br>");
+					}
+					else if(asp.includes(codons[i])){
+					document.write(codons[i] + " --> asp" + "<br>");
+					}
+					else if(glu.includes(codons[i])){
+					document.write(codons[i] + " --> glu" + "<br>");
+					}
+					else if(cys.includes(codons[i])){
+					document.write(codons[i] + " --> cys" + "<br>");
+					}
+					else if(trp.includes(codons[i])){
+					document.write(codons[i] + " --> trp" + "<br>");
+					}
+					else if(arg.includes(codons[i])){
+					document.write(codons[i] + " --> arg" + "<br>");
+					console.log("It passes");
+					}
+					else if(gly.includes(codons[i])){
+					document.write(codons[i] + " --> gly" + "<br>");
+					}
+					else{		
+						document.body.innerHTML = "Genetic Code Unrecognizable";
+						};
+					
+				}
+			}
+	
+		
+		
+		
+			
+        </script>
+	</body>
+</html>
