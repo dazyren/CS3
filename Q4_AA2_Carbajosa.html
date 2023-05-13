@@ -1,21 +1,115 @@
+<html>
+	<style>
+		fieldset{
+				text-align:center; 		
+				margin-left: 25%; 
+				margin-right: 25%; 	
+				width: 50%; 		
+				border-radius: 1000px; 		
+				border-color: seagreen; 		
+				background-color: palegoldenrod; 		
+				font-family: cursive; 		
+				}
+ 		 		
+		legend{
+				color: brown;
+				font-size: 30px;
+				font-weight: 700;
+		} 
+		
+		body{
+			background-image: url("https://img.freepik.com/premium-photo/green-grass-background-football-field_41969-2262.jpg?w=2000");
+		}
+	</style>
+	<body>
+		<form>
+		 	<fieldset> 				
+             	    <legend>Log-in to Grass</legend> 				 				
+					<label for="name">Name</label> 				
+					<br> 				
+					<input type="text" name="name" id="name" onblur="notfocused(this)" onfocus="focused(this)"> 				
+					<br> 				 				
+					<label for="username">Username</label> 				
+					<br> 				
+					<input type="text" name="username" id="username" onblur="notfocused(this)" onfocus="focused(this)"> 			
+					<br> 				 				<label for="name">Gender</label> 				
+					<br> 				<select name="gender" id="gender"> 					
+					<option value="Male">Male</option> 					
+					<option value="Female">Female</option> 					
+					<option value="Prefer not to say">Prefer not to say</option> 			
+					</select> 				<br> 				 				 				
+					<label for="password">Password</label> 				
+					<br> 				
+					<input type="password" name="password" id="password" onblur="notfocused(this)" onfocus="focused(this)" required> 				
+					<br> 				 				
+					<label for="email">Email</label> 			
+					<br> 				
+					<input type="email" name="email" id="email" onblur="notfocused(this)" onfocus="focused(this)" required> 				
+					<br> 				 				
+					<label for="address">Address</label> 			
+					<br> 				
+					<input type="text" name="address" id="address" onblur="notfocused(this)" onfocus="focused(this)" required> 			
+					<br> 				 		
+					<label for="interest">Any Interest</label> 			
+					<br> 				
+					<input type="tArea" name="interest" id="interest" required onblur="notfocused(this)" onfocus="focused(this)"> 		
+					<br>
+					<input type="submit" onclick="summary()">
+					<input type="reset" onclick="resetsummary()">
+				</fieldset> 	
+		</form>
+		
+		<script>	
+				var summarydiv; 	
 
-<!DOCTYPE html> 
-<html> 	
-    <head> 		
-        <title>Forms AA2</title> 
-        	</head> 	 
-        	<style> 		 	
-        	   		fieldset{ 		text-align:center; 		margin-left: 25%; 		margin-right: 25%; 		width: 50%; 		border-radius: 1000px; 		border-color: seagreen; 		background-color: palegoldenrod; 		font-family: cursive; 		} 		 		legend{ 		color: lightbrown; 		} 		 		 		input[type=text]:focus { 			border: 3px solid green; 		}	
+				function focused(x){ 
+				x.style.border = "1px solid green"; 	
+				}; 					 					
+					
+				function notfocused(x){ 						
+				if(x.value === ""){ 						
+				x.style.border = "1px solid red"; 						
+				};
+				};
 
+				function summary(){
+					event.preventDefault();
+					var form = document.querySelector("form");
+					if(form.reportValidity()){
+					var name = document.getElementById("name").value; 						
+					var username = document.getElementById("username").value; 					
+					var gender = document.getElementById("gender").value; 					
+					var password = document.getElementById("password").value; 				
+					var address = document.getElementById("address").value; 			
+					var interest = document.getElementById("interest").value; 				
+					var email = document.getElementById("email").value; 					 			 									
+					if(summarydiv){ 					
+					summarydiv.remove(); 		
+					}; 					
+					summarydiv = document.createElement("fieldset"); 	
+					var summarylegend = document. createElement("legend"); 		
+					summarylegend.innerHTML = "Summary"; 				
+					summarydiv.appendChild(summarylegend); 				
+					document.body.appendChild(summarydiv); 				
+					var summarycontent = document.createElement("p"); 		
+					summarycontent.innerHTML = "Name: " + "<br>" + name + "<br>" + "<br>" + "Username: " + "<br>" + username + "<br>" + "<br>" + "Gender: " + "<br>" + gender + "<br>" + "<br>" + "Password: " + "<br>" + password + "<br>" + "<br>" + "Email: " + "<br>" + email + "<br>" + "<br>" + "Address " + "<br>" + address + "<br>" + 	 "<br>" + "Interest: " + "<br>" + interest; 		
+					summarydiv.appendChild(summarycontent);	 	
+					return false;
+					};					
+				}; 		
 
-        	</style> 	 	
-     <body> 		
-         <form id="form"> 		
-             	<fieldset> 				
-             	    <legend>Log-in Credentials</legend> 				 				<label for="name">Name</label> 				<br> 				<input type="text" name="name" id="name" onblur="notfocused(this)" onfocus="focused(this)"> 				<br> 				 				<label for="username">Username</label> 				<br> 				<input type="text" name="username" id="username" onblur="notfocused(this)" onfocus="focused(this)"> 				<br> 				 				<label for="name">Gender</label> 				<br> 				<select name="gender" id="gender"> 					<option value="Male">Male</option> 					<option value="Female">Female</option> 					<option value="Prefer not to say">Prefer not to say</option> 				</select> 				<br> 				 				 				<label for="password">Password</label> 				<br> 				<input type="password" name="password" id="password" onblur="notfocused(this)" onfocus="focused(this)" required> 				<br> 				 				<label for="email">Email</label> 				<br> 				<input type="email" name="email" id="email" onblur="notfocused(this)" onfocus="focused(this)" required> 				<br> 				 				<label for="address">Address</label> 				<br> 				<input type="text" name="address" id="address" onblur="notfocused(this)" onfocus="focused(this)" required> 				<br> 				 				<label for="interest">Any Interest</label> 				<br> 				<input type="text" name="interest" id="interest" required onblur="notfocused(this)" onfocus="focused(this)"> 				<br> 				 				 				<input type="submit" onclick="summary()" id="submit" value="Submit"> 			
- 	<script> 					var summarydiv; 					var emailregex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/; 					 					function focused(x){ 						x.style.border = "1px solid green"; 						x.style.borderRadius = "0px"; 					}; 					 					function notfocused(x){ 						if(x.value === ""){ 						x.style.border = "1px solid red"; 						} 						else{ 						x.style.border = "1px solid green"; 						}; 					}; 					 			 					function summary(){ 						event.preventDefault(); 						var name = document.getElementById("name").value; 						var username = document.getElementById("username").value; 						var gender = document.getElementById("gender").value; 						var password = document.getElementById("password").value; 						var address = document.getElementById("address").value; 						var interest = document.getElementById("interest").value; 						var email = document.getElementById("email").value; 					 						if(name==""|| username == "" || gender == "" || password == "" || address == "" || interest == ""){ 							alert("Please Enter Proper values"); 							return false; 						} 						 						else if(emailregex.test(email) == false){ 							alert("Please Enter A Valid Email");
+				function resetsummary(){
+				    var inputborder = document.getElementsByTagName("input");
+					for (var i = 0; i < inputborder.length; i++) {
+					inputborder[i].style.border = "1px solid black";
+					}	
+					
+					if (summarydiv) {
+					summarydiv.remove(); 		
+					};	
+				};
 
- 	  document.getElementById("email").style.border = "1px solid red";	
- 			return false; 						} 		 						else{ 						if(summarydiv){ 							summarydiv.remove(); 						}; 						summarydiv = document.createElement("fieldset"); 						var summarylegend = document. createElement("legend"); 						summarylegend.innerHTML = "Summary"; 						summarydiv.appendChild(summarylegend); 						document.body.appendChild(summarydiv); 						var summarycontent = document.createElement("p"); 						summarycontent.innerHTML = "Name: " + "<br>" + name + "<br>" + "<br>" + "Username: " + "<br>" + username + "<br>" + "<br>" + "Gender: " + "<br>" + gender + "<br>" + "<br>" + "Password: " + "<br>" + password + "<br>" + "<br>" + "Email: " + "<br>" + email + "<br>" + "<br>" + "Address " + "<br>" + address + "<br>" + 	 "<br>" + "Interest: " + "<br>" + interest; 						summarydiv.appendChild(summarycontent);	 						document.getElementById("submit").value = "Reset"; 						document.getElementById("submit").onclick = "reset()"; 						}; 					 					}; 					 					function reset(){ 						event.preventDefault(); 						summarydiv.remove(); 						document.getElementById("submit").value = "Reset"; 						document.getElementById("submit").onclick = "summary()"; 					}; 						 						 						 				</script> 			</fieldset> 		</form> 	</body> </html> 
-
-
+		</script>
+		
+	</body>
+</html>
